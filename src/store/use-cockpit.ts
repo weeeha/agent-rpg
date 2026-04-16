@@ -1,67 +1,40 @@
 import { create } from "zustand";
-import {
-  Agent,
-  ActiveOp,
-  Mission,
-  LogEvent,
-  ResourceMeter,
-  DomainKey,
-  SubsystemKey,
-} from "@/types";
-import {
-  mockAgents,
-  mockMissions,
-  mockActiveOps,
-  mockLog,
-  mockResources,
-} from "@/data";
+import { Agent, ActiveOp } from "@/types";
+import { mockAgents } from "@/data";
 
+/**
+ * Minimal cockpit store for the RPG game view.
+ * Agents drive the in-game character sprites; activeOps feeds the HUD counter.
+ * In the full Command HQ branch this store carries missions, log, resources too.
+ */
 interface CockpitStore {
-  // Data
   agents: Agent[];
-  missions: Mission[];
   activeOps: ActiveOp[];
-  log: LogEvent[];
-  resources: ResourceMeter[];
-  domain: DomainKey;
 
-  // Selection
   selectedAgentId: string | null;
-  selectedMissionId: string | null;
-  activeSubsystem: SubsystemKey | null;
-
-  // Actions
   selectAgent: (id: string | null) => void;
-  selectMission: (id: string | null) => void;
-  selectSubsystem: (key: SubsystemKey | null) => void;
-  setDomain: (domain: DomainKey) => void;
-  addLogEvent: (event: Omit<LogEvent, "id" | "at">) => void;
 }
 
+// Derive a lightweight activeOps list from agents currently in "deployed" status.
+const initialActiveOps: ActiveOp[] = mockAgents
+  .filter((a) => a.status === "deployed")
+  .map((a, i) => ({
+    id: `op-${a.id}-${i}`,
+    missionId: `mission-${i}`,
+    title: a.statusDetail ?? "In-flight task",
+    assignedAgentIds: [a.id],
+    state: "in-progress",
+    progress: 50,
+    stateDetail: a.statusDetail ?? "Running",
+    elapsedMinutes: 20,
+    etaMinutes: 30,
+    creditsSpent: 0,
+  }));
+
 export const useCockpitStore = create<CockpitStore>((set) => ({
-  // Data
   agents: mockAgents,
-  missions: mockMissions,
-  activeOps: mockActiveOps,
-  log: mockLog,
-  resources: mockResources,
-  domain: "ops",
+  activeOps: initialActiveOps,
 
-  // Selection
   selectedAgentId: null,
-  selectedMissionId: null,
-  activeSubsystem: null,
-
-  // Actions
-  selectAgent: (id) => set({ selectedAgentId: id, activeSubsystem: null }),
-  selectMission: (id) => set({ selectedMissionId: id }),
-  selectSubsystem: (key) => set({ activeSubsystem: key }),
-  setDomain: (domain) => set({ domain }),
-  addLogEvent: (event) =>
-    set((state) => ({
-      log: [
-        { ...event, id: crypto.randomUUID(), at: new Date().toISOString() },
-        ...state.log,
-      ],
-    })),
+  selectAgent: (id) => set({ selectedAgentId: id }),
 }));

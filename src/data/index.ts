@@ -1,8 +1,3 @@
 export { mockAgents } from "./mock-agents";
-export { mockMissions } from "./mock-missions";
-export { mockActiveOps } from "./mock-operations";
-export { mockLog } from "./mock-log";
-export { mockResources } from "./mock-resources";
 export { roomTypeDefs } from "./room-types";
 export { createDefaultShipLayout } from "./ship-layout";
-export { SUBSYSTEM_DEFS, mockReputations } from "./mock-cyberware";

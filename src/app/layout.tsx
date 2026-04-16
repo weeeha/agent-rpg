@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Merriweather } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { TopNav } from "@/components/navigation/top-nav";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,8 +23,8 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "Agent command center",
-  description: "RPG-style AI agent management dashboard",
+  title: "Agent RPG",
+  description: "RimWorld-style game base for AI agent management",
 };
 
 export default function RootLayout({
@@ -39,10 +38,7 @@ export default function RootLayout({
       className={`dark ${inter.variable} ${jetbrainsMono.variable} ${merriweather.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
-        <TooltipProvider>
-          <TopNav />
-          {children}
-        </TooltipProvider>
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
-import { CommandCenter } from "@/components/cockpit/command-center";
+import { GameView } from "@/components/base/game-view";
 
 export default function Home() {
-  return <CommandCenter />;
+  return <GameView />;
 }
