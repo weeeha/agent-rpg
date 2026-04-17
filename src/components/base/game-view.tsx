@@ -6,6 +6,7 @@ import { ActivityBar } from "./activity-bar";
 import { AgentPanel } from "./agent-panel";
 import { RoomPanel } from "./room-panel";
 import { Minimap } from "./minimap";
+import { ScreenNav } from "./screen-nav";
 import { useBaseStore } from "@/store/use-base";
 import { useCockpitStore } from "@/store/use-cockpit";
 import { useEffect } from "react";
@@ -45,6 +46,7 @@ export function GameView() {
       <ResourceHUD />
       <Minimap />
       <ActivityBar />
+      <ScreenNav />
       {panelOpen === "agent" && <AgentPanel />}
       {panelOpen === "room" && <RoomPanel />}
     </div>
