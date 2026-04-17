@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agent RPG
 
-## Getting Started
+RimWorld-style top-down game view for managing an AI agent squad.
 
-First, run the development server:
+🎮 **Live**: [agent-rpg.vercel.app](https://agent-rpg.vercel.app)
+
+## What it is
+
+A 2D canvas-based game where your AI agents live in rooms aboard a spaceship. Click an agent to see their RPG character sheet (stats, skills, cyberware). Click a room to see details like token spend, memory banks, or assigned agents. The simulation runs live — agents walk between rooms, complete tasks, and post events to an activity log.
+
+## Features
+
+- **24×18 ship grid** with 15 pre-built rooms: Bridge, Briefing, Workshop, Armory, Commons, Medbay, Training, Engineering, Storage, Financial Center, Memory Vault, and 4 agent Quarters
+- **8 animated agent sprites** (ATLAS, CIPHER, FORGE, ECHO, MIRROR, MUSE, SENTINEL, NOVA) — each with unique 8-bit pixel art
+- **Live simulation**: agents move between rooms, tasks rotate, events stream to the activity log
+- **Pan & zoom** canvas with mouse drag and scroll wheel
+- **Agent profile panel** — full RPG character sheet with stats, skills (EPIC/RARE tiers), memory banks, connectors
+- **Room detail panel** — room-specific content (token spend for Financial Center, memory banks for Memory Vault, global metrics for Bridge)
+- **Minimap** with live agent dots
+- **Resource HUD** — credits, power, agents, active ops with play/pause and 1x/2x/4x sim speed
+
+## Stack
+
+- Next.js 16 App Router · React 19 · TypeScript
+- HTML5 Canvas rendering with layered tilemap, camera, sprite animation
+- Tailwind CSS v4 for UI overlays
+- Zustand state management
+- 39 pixel art assets generated via Gemini nano-banana
+- Deployed on Vercel (auto-deploys on push to `main`)
+
+## Related
+
+- 📊 [AgentCommandHQ](https://github.com/weeeha/AgentCommandHQ) — the business dashboard variant at [agent-command-hq.vercel.app](https://agent-command-hq.vercel.app)
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Opens at `http://localhost:3000`.
