@@ -2,6 +2,8 @@
 
 RimWorld-style top-down game view for managing an AI agent squad.
 
+![Agent RPG ship map with agents, rooms, resource HUD, minimap and activity log](docs/screenshots/overview.webp)
+
 🎮 **Live**: [agent-rpg.vercel.app](https://agent-rpg.vercel.app)
 
 ## What it is
@@ -19,13 +21,19 @@ A 2D canvas-based game where your AI agents live in rooms aboard a spaceship. Cl
 - **Minimap** with live agent dots
 - **Resource HUD** — credits, power, agents, active ops with play/pause and 1x/2x/4x sim speed
 
+## Screenshots
+
+![ATLAS character sheet open beside the ship map](docs/screenshots/agent-profile.webp)
+
+Clicking an agent opens the character sheet with stats, skills, memory and connectors.
+
 ## Stack
 
 - Next.js 16 App Router · React 19 · TypeScript
 - HTML5 Canvas rendering with layered tilemap, camera, sprite animation
 - Tailwind CSS v4 for UI overlays
 - Zustand state management
-- 39 pixel art assets generated via Gemini nano-banana
+- 41 pixel art assets generated via Gemini nano-banana
 - Deployed on Vercel (auto-deploys on push to `main`)
 
 ## Related
