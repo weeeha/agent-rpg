@@ -1,5 +1,11 @@
 # Agent RPG
 
+**Problem.** Someone running a squad of AI agents has to keep track of what each one is doing, what it spends and what it remembers.
+
+**Idea.** Show the squad as a RimWorld-style ship. Agents live in rooms and walk between them as tasks change, a click on an agent opens an RPG character sheet, and a click on a room shows details such as token spend or memory banks.
+
+**Built.** A Next.js 16 and React 19 canvas game: a 24x18 ship with 15 rooms and 8 pixel-art agents, a resource HUD, a minimap and a live simulation that moves agents between rooms and posts events to an activity log. Live at https://agent-rpg.vercel.app. 7 commits on 4 days, Apr 16 to Oct 20, 2026.
+
 RimWorld-style top-down game view for managing an AI agent squad.
 
 ![Agent RPG ship map with agents, rooms, resource HUD, minimap and activity log](docs/screenshots/overview.webp)
