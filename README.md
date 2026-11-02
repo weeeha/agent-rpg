@@ -6,6 +6,8 @@
 
 **Built.** A Next.js 16 and React 19 canvas game: a 24x18 ship with 15 rooms and 8 pixel-art agents, a resource HUD, a minimap and a live simulation that moves agents between rooms and posts events to an activity log. Live at https://agent-rpg.vercel.app. 7 commits on 4 days, Apr 16 to Oct 20, 2026.
 
+**Decision.** The business dashboard that first shared this codebase was split out, so the game view is the whole app at `/`, with no dashboard or navigation around it.
+
 RimWorld-style top-down game view for managing an AI agent squad.
 
 ![Agent RPG ship map with agents, rooms, resource HUD, minimap and activity log](docs/screenshots/overview.webp)
